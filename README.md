@@ -1,4 +1,4 @@
-# SeniorSeminar
+# Senior Seminar Project
  Senior Seminar Project for Dr. Zhong
 
 ## Description
