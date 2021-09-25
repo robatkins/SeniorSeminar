@@ -37,22 +37,18 @@ public class Driver
 	public static void main(String[] args) 
 	{
 		
+		//We call the function that lets us get our starter array size and number of experiments inputs from the user.
+		getStarterInput();
 		
+		//We create our arrays for experimentation.
+		int[] unsortedDefaultArray = new int[n]; //Our unsorted array which will be used to populate all other arrays with default elements.
 		
-		System.out.println("Enter the number of elements : ");
-		n = scan.nextInt();
-		System.out.println("Enter the number of times to run the experiment: ");
-		numberOfExperiments = scan.nextInt();
-		
-		//We create our arrays for experimentation
-		int[] unsortedDefaultArray = new int[n]; //Our unsorted array which will be used to populate all other arrays with default elements
-		
-		//We create three arrays which will hold copies of the original unsorted arrays elements
+		//We create three arrays which will hold copies of the original unsorted arrays elements.
 		int[] insertionSortArray = new int[n];
 		int[] selectionSortArray = new int[n];
 		int[] quickSortArray = new int[n];
 		
-		//We run our experiment
+		//We run our experiments.
 		runExperiments(unsortedDefaultArray, insertionSortArray, selectionSortArray, quickSortArray, n);
 		
 		
@@ -69,19 +65,20 @@ public class Driver
 		
 		}
 		
+		//Update the Averages of our experiment results.
 		timeAverage1 = timeSum1 / numberOfExperiments;
 		timeAverage2 = timeSum2 / numberOfExperiments;
 		timeAverage3 = timeSum3 / numberOfExperiments;
 		
-		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
-		System.out.println("Number of Experiments Ran: " + numberOfExperiments);
-		System.out.print("Insertion Sort Average Time: " + timeAverage1 + " Milliseconds | ");
-		System.out.print("Selection Sort Average Time: " + timeAverage2 + " Milliseconds | ");
-		System.out.println("QuickSort Average Time: " + timeAverage3 + " Milliseconds");
+		//Output the Averages of our experiment results to the screen.
+		outputExperimentAverageResults();
+		
+		System.out.println("[Success] " + numberOfExperiments + " Experiments Completed.");
+		
 		
 	}
 	
-	//The submethod called by runExperiments() to run our individual experiments on our sorting algorithms.
+	//The submethod called by runExperiments() to run our individual experiment on our sorting algorithms.
 	static void runExperiment(int[] unsortedDefaultArray, int[] insertionSortArray, int[] selectionSortArray, int[] quickSortArray, int n)
 	{
 		//We populate our default unsorted array with elements to pass to our sort algorithms
@@ -90,40 +87,27 @@ public class Driver
 		//We copy the values of our default unsorted array to the placeholder arrays which our sorting algorithms will be applied to.
 		copyDefaultUnsortedArray(unsortedDefaultArray, insertionSortArray, selectionSortArray, quickSortArray, n);
 		
-		//Test output of unsorted arrays to ensure consistency of data supplied to algorithms
-		//System.out.println("Default Unsorted Array");
-		//outputArray(unsortedDefaultArray, n);
-		
 		//Apply Insertion Sort to our unsorted Array
 		startTime1 = System.currentTimeMillis();
 		insertionSort(insertionSortArray);
 		endTime1 = System.currentTimeMillis();
 		//System.out.println("Insertion Sorted Array Success..");
 
-		//outputArray(insertionSortArray, n);
 				
 		//Apply Selection Sort to our unsorted Array
 		startTime2 = System.currentTimeMillis();
 		selectionSort(selectionSortArray);
 		endTime2 = System.currentTimeMillis();
 		//System.out.println("Selection Sorted Array Success...");
-		//outputArray(selectionSortArray, n);
 				
 		//Apply QuickSort to our unsorted Array
 				
 		startTime3 = System.currentTimeMillis();
 		quickSort(quickSortArray, 0, n - 1);
 		endTime3 = System.currentTimeMillis();
-		System.out.println("Sorted Arrays Success...");
-		//outputArray(quickSortArray, n);
 				
 		//Output the time measurements for comparison
-		System.out.println();
-		System.out.println("Number of Array Elements : " + n);
-		System.out.print("Insertion Sort Time : " + (endTime1 - startTime1) + " Milliseconds |");
-		System.out.print("Selection Sort Time : " + (endTime2 - startTime2) + " Milliseconds |");
-		System.out.println("QuickSort Time : " + (endTime3 - startTime3) + " Milliseconds");
-		System.out.println();
+		outputExperimentResults();
 		
 		//We sum our times so that we can take the average in the runExperiments() parent function
 		timeSum1 = timeSum1 + (endTime1 - startTime1); 
@@ -272,6 +256,45 @@ public class Driver
 			System.out.println(array[i] + " ");
 		}
 			System.out.println();
+	}
+	
+	
+	//The method to output the average of the results of our experiments to the screen.
+	public static void outputExperimentAverageResults()
+	{
+		
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("Number of Experiments Ran: " + numberOfExperiments);
+		System.out.print("Insertion Sort Average Time: " + timeAverage1 + " Milliseconds | ");
+		System.out.print("Selection Sort Average Time: " + timeAverage2 + " Milliseconds | ");
+		System.out.println("QuickSort Average Time: " + timeAverage3 + " Milliseconds");
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		
+	}
+	
+	//The method to output the results of our experiments to the screen.
+	public static void outputExperimentResults()
+	{
+		
+		System.out.println();
+		System.out.println("Number of Array Elements : " + n);
+		System.out.print("Insertion Sort Time : " + (endTime1 - startTime1) + " Milliseconds |");
+		System.out.print("Selection Sort Time : " + (endTime2 - startTime2) + " Milliseconds |");
+		System.out.println("QuickSort Time : " + (endTime3 - startTime3) + " Milliseconds");
+		
+	}
+	
+	public static void getStarterInput()
+	{
+		
+		System.out.print("Enter the number of elements : ");
+		n = scan.nextInt();
+		System.out.println();
+		System.out.print("Enter the number of times to run the experiment: ");
+		numberOfExperiments = scan.nextInt();
+		System.out.println();
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
 	}
 	
 }
