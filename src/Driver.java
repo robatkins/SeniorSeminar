@@ -284,6 +284,7 @@ public class Driver
 		
 	}
 	
+	//The method to output the starter prompt to get the user to populate the starter variables.
 	public static void getStarterInput()
 	{
 		
