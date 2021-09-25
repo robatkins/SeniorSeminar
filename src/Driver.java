@@ -91,14 +91,12 @@ public class Driver
 		startTime1 = System.currentTimeMillis();
 		insertionSort(insertionSortArray);
 		endTime1 = System.currentTimeMillis();
-		//System.out.println("Insertion Sorted Array Success..");
 
 				
 		//Apply Selection Sort to our unsorted Array
 		startTime2 = System.currentTimeMillis();
 		selectionSort(selectionSortArray);
 		endTime2 = System.currentTimeMillis();
-		//System.out.println("Selection Sorted Array Success...");
 				
 		//Apply QuickSort to our unsorted Array
 				
