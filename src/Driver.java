@@ -124,6 +124,8 @@ public class Driver
 		int max = 999999999;
 		Random randomInteger = new Random();
 		
+		
+		//Step through each index i in our array and populate it at that point with a random integer between min and max variables.
 		for(int i=0; i<n; i++)
 		{
 			array[i] = randomInteger.nextInt((max - min) + 1) + min;
