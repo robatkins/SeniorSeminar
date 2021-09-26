@@ -16,10 +16,12 @@ public class Driver
 	int[] unsortedArray1, unsortedArray2, unsortedArray3;
 	
 	//We declare variables to hold time values
+	//Enumerated 1 for Insertion Sort, 2 for Selection Sort, and 3 for Quick Sort.
 	static long startTime1, startTime2, startTime3;
 	static long endTime1, endTime2, endTime3;
 	
 	//We declare empty long variables as placeholders to store the sums of the time spent on our experiments
+	//Enumerated 1 for Insertion Sort, 2 for Selection Sort, and 3 for Quick Sort.
 	static long timeSum1, timeSum2, timeSum3;
 	
 	//We declare empty long variables as placeholders to store the averages of our experiments on the sorting algorithms
@@ -203,6 +205,36 @@ public class Driver
 			temp = array[i];
 			array[i] = array[position];
 			array[position] = temp;
+			
+		}
+		
+	}
+	
+	//The implementation of our Bubble Sort Algorithm
+	public static void bubbleSort(int[] array)
+	{
+		
+		int length = array.length, temp;
+		boolean flag;
+		
+		for(int i = 0; i< length; i++)
+		{
+			
+			flag = false;
+			for(int j = 0; j < length - i - 1; j++)
+			{
+				
+				if(array[j] > array[j + 1])
+				{
+					
+					temp = array[j];
+					array[j] = array[j + 1];
+					array[j + 1] = temp;
+					flag = true;
+				
+				}
+				
+			}
 			
 		}
 		
