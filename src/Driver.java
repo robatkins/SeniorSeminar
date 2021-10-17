@@ -138,7 +138,7 @@ public class Driver
 		selectionSort(partiallySortedSelectionSortArray);
 		endTime5 = System.currentTimeMillis();
 						
-		//Apply QuickSort to our unsorted Array
+		//Apply QuickSort to our partially sorted Array.
 						
 		startTime6 = System.currentTimeMillis();
 		quickSort(quickSortArray, 0, n - 1);
