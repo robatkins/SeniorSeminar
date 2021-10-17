@@ -51,6 +51,7 @@ public class Driver
 		int[] insertionSortArray = new int[n];
 		int[] selectionSortArray = new int[n];
 		int[] quickSortArray = new int[n];
+		//These three arrays only hold copies past n/2
 		int[] partiallySortedSelectionSortArray = new int[n];
 		int[] partiallySortedQuickSortArray = new int[n];
 		int[] partiallySortedInsertionSortArray = new int[n];		
@@ -142,6 +143,10 @@ public class Driver
 						
 		//Becomes unstable past 19000 elements and crashes program. no known fix yet. Runs fine when isolated in the QuickSort class. Problem seems to have something to do with the integer range. Possibly using too much memory?
 		startTime6 = System.currentTimeMillis();
+		if(n< 9999999)
+		{
+			quickSort(partiallySortedQuickSortArray, 0, n-1);
+		}
 		endTime6 = System.currentTimeMillis();
 		
 		//We sum our times so that we can take the average in the runExperiments() parent function
