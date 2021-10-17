@@ -173,7 +173,7 @@ public class Driver
 			array[i] = randomInteger.nextInt((max - min) + 1) + min;
 		}
 		
-		createDefaultPartiallySortedArray(array, arrayb, n); //we pass our values into the creation of the partially sorted array so there is consistency in data.
+		createDefaultPartiallySortedArray(array, arrayb, n); //we pass our values into the creation of the partially sorted array so there is consistency in data. only half of them actually get stored in this array.
 		
 		
 		
