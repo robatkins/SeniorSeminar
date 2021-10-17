@@ -140,8 +140,8 @@ public class Driver
 						
 		//Apply QuickSort to our partially sorted Array.
 						
+		//Becomes unstable past 19000 elements and crashes program. no known fix yet. Runs fine when isolated in the QuickSort class. Problem seems to have something to do with the integer range. Possibly using too much memory?
 		startTime6 = System.currentTimeMillis();
-		quickSort(quickSortArray, 0, n - 1);
 		endTime6 = System.currentTimeMillis();
 		
 		//We sum our times so that we can take the average in the runExperiments() parent function
@@ -158,7 +158,7 @@ public class Driver
 	static void createDefaultUnsortedArray(int[] array,int[]arrayb , int n)
 	{
 		int min = 0;
-		int max = 999999999;
+		int max = 9999999;
 		Random randomInteger = new Random();
 		
 		
@@ -179,7 +179,7 @@ public class Driver
 	{
 		
 		int min = 0;
-		int max = 999999;
+		int max = 9999999;
 		Random randomInteger = new Random();
 		
 		//We populate the first half of the array with integers in a sequential fashion. (Sorted)
@@ -383,7 +383,6 @@ public class Driver
 	//The method to output the average of the results of our experiments to the screen after all of the experiments are ran.
 	public static void outputExperimentAverageResults()
 	{
-		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
