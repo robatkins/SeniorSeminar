@@ -310,7 +310,7 @@ public class Driver
 		
 	}
 		
-	}
+	
 	
 	//The implementation of our QuickSort Algorithm.
 	public static void quickSort(int array[], int lower, int upper)
