@@ -22,7 +22,7 @@ public class QuickSort
 		
 		int p, k, upper, lower;
 		
-		System.out.println("Enter " + n + " elements : " );
+		System.out.println("Entered " + n + " elements" );
 		
 		//Get the elements to input in the array for sorting.
 		getInput(array, n, scan);
