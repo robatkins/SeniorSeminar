@@ -85,7 +85,8 @@ public class Driver
 		outputExperimentAverageResultsPS();
 		
 		System.out.println("[Success] " + numberOfExperiments * 2 + " Experiments Completed.");
-		
+		System.out.println("[Experiments with random integers]: " + numberOfExperiments + " | [Experiments with partially sorted data]: " + numberOfExperiments);
+
 		
 	}
 	
