@@ -247,14 +247,18 @@ public class Driver
 		//We loop through the array for the sorting process.
 		for(int i = 1; i < length; i++)
 		{
+			//We assign the array value at index i to a temporary variable.
 			temp = array[i];
 			
+			//We loop again.
 			for(k = i; k > 0; k--)
 			{
 				
+				//if the value of k-1 > the element stored at index i.
 				if (array[k - 1] > temp)
 				{
 					
+					//assign the current index to the prior element in the sequence of elements.s
 					array[k] = array[k - 1];
 					
 				}
@@ -282,18 +286,22 @@ public class Driver
 		//We loop through the array for the sorting process.
 		for(int i = 0; i < length; i++)
 		{
+			//We assign our index i to a temporary variable position.
 			position = i;
+			//We loop again.
 			for (int k = i + 1; k < length; k++)
 			{
+				//If array element at value k is less than array element at value position.
 				if(array[k] < array[position])
 				{
-					
+					//Do this.
 					position = k;
 				
 				}
 				
 			}
 			
+			//Swap values.
 			temp = array[i];
 			array[i] = array[position];
 			array[position] = temp;
@@ -301,35 +309,6 @@ public class Driver
 		}
 		
 	}
-	
-	//The implementation of our Bubble Sort Algorithm
-	public static void bubbleSort(int[] array)
-	{
-		// We declare and initialize our variables.
-		int length = array.length, temp;
-		boolean flag;
-		
-		// We loop through the array for our sorting process.
-		for(int i = 0; i< length; i++)
-		{
-			
-			flag = false;
-			for(int j = 0; j < length - i - 1; j++)
-			{
-				
-				if(array[j] > array[j + 1])
-				{
-					
-					temp = array[j];
-					array[j] = array[j + 1];
-					array[j + 1] = temp;
-					flag = true;
-				
-				}
-				
-			}
-			
-		}
 		
 	}
 	
@@ -338,10 +317,15 @@ public class Driver
 	{
 		if (lower >= upper)
 		{
+			//Already sorted so just return.
 			return;
 		}
-			
+		
+		//Failed the already sorted test so do this.
+		//Call the partition function and pass in the array with lower and upper bounds.
 		int p = partition(array, lower, upper);
+		
+		//Recursively call back to quickSort.
 		quickSort(array, lower, p - 1);
 		quickSort(array, p + 1, upper);
 			
