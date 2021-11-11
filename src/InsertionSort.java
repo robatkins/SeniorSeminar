@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class InsertionSort 
+public class InsertionSort
 {
 	
 	//Declare the time holder variables

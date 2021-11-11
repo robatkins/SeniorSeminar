@@ -9,7 +9,7 @@ import java.util.Random;
  * 
  */
 
-public class Driver
+public class Driver<T extends Comparable<? super T>>
 {
 	
 	//We create 6 empty arrays
