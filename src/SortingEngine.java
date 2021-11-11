@@ -2,19 +2,100 @@ public class SortingEngine<T extends Comparable<? super T>> {
     
 	//Sorting Engine can sort arrays of integers, double, an strings using a variety of sorting methods.
 	
+	//Declare the time holder variables
+	static long startTime;
+	static long endTime;
+	static long duration;
+	
 	public static void main(String[] args)
     {
         // example using Strings
-        String[] arrayOfStrings = {"Andree", "Leana", "Faviola", "Loyce", "Quincy", "Milo", "Jamila", "Toccara", "Nelda", "Blair", "Ernestine", "Chara", "Kareen", "Monty", "Rene", "Cami", "Winifred", "Tara", "Demetrice", "Azucena"};
+        String[] arrayOfStringsQuick = {"John", "Rob", "Robert", "Robin", "Austria", "Marley", "Bob", "Bobby", "Brian", "Andilay", "Aaron", "Mike", "Allen", "Aurora", "Austin", "Betty", "Michael", "Bryan", "Wayne", "Dwayne", "Miley", "Tom", "Andree", "Leana", "Faviola", "Loyce", "Quincy", "Milo", "Jamila", "Toccara", "Nelda", "Blair", "Ernestine", "Chara", "Kareen", "Monty", "Rene", "Cami", "Winifred", "Tara", "Demetrice", "Azucena"};
         SortingEngine<String> stringSorter   = new SortingEngine<>();
-        stringSorter.quickSort(arrayOfStrings, 0, arrayOfStrings.length - 1);
-        System.out.println(java.util.Arrays.toString(arrayOfStrings));
-
+       
+        startTime = System.nanoTime();
+        stringSorter.quickSort(arrayOfStringsQuick, 0, arrayOfStringsQuick.length - 1);
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+       
+		System.out.println(java.util.Arrays.toString(arrayOfStringsQuick));
+		System.out.println("Sorting Time(in nanoseconds): " + duration);
+		System.out.println("Array Length: " + arrayOfStringsQuick.length);
+		System.out.println("Sorting Algorithm: QuickSort");
+		System.out.println();
+		
         // example using Doubles
-        Double[] arrayOfDoubles = {0.35, 0.02, 0.36, 0.82, 0.27, 0.49, 0.41, 0.17, 0.30, 0.89, 0.37, 0.66, 0.82, 0.17, 0.20, 0.96, 0.18, 0.25, 0.37, 0.52};
+        Double[] arrayOfDoublesQuick = {0.35, 0.02, 0.36, 0.27, 0.49, 0.41, 0.14, 0.16, 0.15, 0.01, 0.032, 0.064, 0.044, 0.055, 0.30, 0.89, 0.03, 0.064, 0.37, 0.66, 0.82, 0.38, 0.31, 0.22256, 0.17, 0.95, 0.94, 0.86, 0.20, 0.18, 0.25, 0.52, 0.98, 0.96, 0.34, 0.345, 0.097, 0.87, 0.97, 0.23, 0.125, 0.2222};
         SortingEngine<Double> doubleSorter   = new SortingEngine<>();
-        doubleSorter.quickSort(arrayOfDoubles, 0, arrayOfDoubles.length - 1);
-        System.out.println(java.util.Arrays.toString(arrayOfDoubles));
+        
+        startTime = System.nanoTime();
+        doubleSorter.quickSort(arrayOfDoublesQuick, 0, arrayOfDoublesQuick.length - 1);
+        endTime = System.nanoTime();
+		duration = endTime - startTime;
+		
+        System.out.println(java.util.Arrays.toString(arrayOfDoublesQuick));
+        System.out.println("Sorting Time(in nanoseconds): " + duration);
+		System.out.println("Array Length: " + arrayOfDoublesQuick.length);
+		System.out.println("Sorting Algorithm: QuickSort");
+		System.out.println();
+		
+		// example using Strings
+        String[] arrayOfStringsInsertion = {"John", "Rob", "Robert", "Robin", "Austria", "Marley", "Bob", "Bobby", "Brian", "Andilay", "Aaron", "Mike", "Allen", "Aurora", "Austin", "Betty", "Michael", "Bryan", "Wayne", "Dwayne", "Miley", "Tom", "Andree", "Leana", "Faviola", "Loyce", "Quincy", "Milo", "Jamila", "Toccara", "Nelda", "Blair", "Ernestine", "Chara", "Kareen", "Monty", "Rene", "Cami", "Winifred", "Tara", "Demetrice", "Azucena"};
+       
+        startTime = System.nanoTime();
+        stringSorter.insertionSort(arrayOfStringsInsertion);
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+       
+		System.out.println(java.util.Arrays.toString(arrayOfStringsInsertion));
+		System.out.println("Sorting Time(in nanoseconds): " + duration);
+		System.out.println("Array Length: " + arrayOfStringsInsertion.length);
+		System.out.println("Sorting Algorithm: Insertion Sort");
+		System.out.println();
+		
+        // example using Doubles
+        Double[] arrayOfDoublesInsertion = {0.35, 0.02, 0.36, 0.27, 0.49, 0.41, 0.14, 0.16, 0.15, 0.01, 0.032, 0.064, 0.044, 0.055, 0.30, 0.89, 0.03, 0.064, 0.37, 0.66, 0.82, 0.38, 0.31, 0.22256, 0.17, 0.95, 0.94, 0.86, 0.20, 0.18, 0.25, 0.52, 0.98, 0.96, 0.34, 0.345, 0.097, 0.87, 0.97, 0.23, 0.125, 0.2222};
+        
+        startTime = System.nanoTime();
+        doubleSorter.insertionSort(arrayOfDoublesInsertion);
+        endTime = System.nanoTime();
+		duration = endTime - startTime;
+		
+        System.out.println(java.util.Arrays.toString(arrayOfDoublesInsertion));
+        System.out.println("Sorting Time(in nanoseconds): " + duration);
+		System.out.println("Array Length: " + arrayOfDoublesInsertion.length);
+		System.out.println("Sorting Algorithm: Insertion Sort");
+		System.out.println();
+		
+		// example using Strings
+        String[] arrayOfStringsSelection = {"John", "Rob", "Robert", "Robin", "Austria", "Marley", "Bob", "Bobby", "Brian", "Andilay", "Aaron", "Mike", "Allen", "Aurora", "Austin", "Betty", "Michael", "Bryan", "Wayne", "Dwayne", "Miley", "Tom", "Andree", "Leana", "Faviola", "Loyce", "Quincy", "Milo", "Jamila", "Toccara", "Nelda", "Blair", "Ernestine", "Chara", "Kareen", "Monty", "Rene", "Cami", "Winifred", "Tara", "Demetrice", "Azucena"};
+       
+        startTime = System.nanoTime();
+        stringSorter.selectionSort(arrayOfStringsSelection);
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+       
+		System.out.println(java.util.Arrays.toString(arrayOfStringsSelection));
+		System.out.println("Sorting Time(in nanoseconds): " + duration);
+		System.out.println("Array Length: " + arrayOfStringsSelection.length);
+		System.out.println("Sorting Algorithm: Selection Sort");
+		System.out.println();
+		
+        // example using Doubles
+        Double[] arrayOfDoublesSelection = {0.35, 0.02, 0.36, 0.27, 0.49, 0.41, 0.14, 0.16, 0.15, 0.01, 0.032, 0.064, 0.044, 0.055, 0.30, 0.89, 0.03, 0.064, 0.37, 0.66, 0.82, 0.38, 0.31, 0.22256, 0.17, 0.95, 0.94, 0.86, 0.20, 0.18, 0.25, 0.52, 0.98, 0.96, 0.34, 0.345, 0.097, 0.87, 0.97, 0.23, 0.125, 0.2222};
+        
+        startTime = System.nanoTime();
+        doubleSorter.selectionSort(arrayOfDoublesSelection);
+        endTime = System.nanoTime();
+		duration = endTime - startTime;
+		
+        System.out.println(java.util.Arrays.toString(arrayOfDoublesSelection));
+        System.out.println("Sorting Time(in nanoseconds): " + duration);
+		System.out.println("Array Length: " + arrayOfDoublesSelection.length);
+		System.out.println("Sorting Algorithm: Selection Sort");
+
+
+    
     }
 
     
